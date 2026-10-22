@@ -376,6 +376,27 @@ button {
 .nav .btn {
   margin-left: 10px;
 }
+.draft-swap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 16px;
+  padding: 7px 13px;
+  border: 1.5px dashed var(--mauve);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--plum);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.draft-swap:hover {
+  background: var(--plum-deep);
+  border-color: var(--plum-deep);
+  border-style: solid;
+  color: #fff;
+}
 
 .menu-toggle {
   display: none;
@@ -1246,6 +1267,23 @@ button {
 }
 
 /* Responsive */
+@media (max-width: 1120px) and (min-width: 861px) {
+  .header-row {
+    gap: 12px;
+  }
+  .navlink {
+    padding: 8px 9px;
+    font-size: 0.93rem;
+  }
+  .nav .btn {
+    margin-left: 6px;
+  }
+  .draft-swap {
+    margin-left: 10px;
+    padding: 7px 10px;
+  }
+}
+
 @media (max-width: 1020px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
@@ -1291,6 +1329,11 @@ button {
   }
   .nav .btn {
     margin: 12px 0 0;
+  }
+  .draft-swap {
+    margin: 10px 0 0;
+    justify-content: center;
+    padding: 11px 14px;
   }
   .split,
   .split.reverse,

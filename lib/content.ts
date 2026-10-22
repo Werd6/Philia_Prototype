@@ -144,6 +144,15 @@ export const TEAM = [
   { name: "Adipiscing Sed", role: "Community Lead", tone: "blush" as Tone },
 ];
 
+export const BOARD = [
+  { name: "Dolor Sitamet", role: "Chair", tone: "lavender" as Tone },
+  { name: "Tempor Incidid", role: "Vice Chair", tone: "coral" as Tone },
+  { name: "Magna Aliqua", role: "Treasurer", tone: "pink" as Tone },
+  { name: "Veniam Nostrud", role: "Secretary", tone: "blush" as Tone },
+  { name: "Ullamco Laboris", role: "Member", tone: "plum" as Tone },
+  { name: "Commodo Consequat", role: "Member", tone: "lavender" as Tone },
+];
+
 export const PARTNERS = [
   "Echo Collective",
   "Release Inc.",
@@ -168,6 +177,17 @@ export const COUNTRIES: { name: string; lat: number; lon: number }[] = [
   { name: "Zambia", lat: -13.1, lon: 27.8 },
   { name: "Zimbabwe", lat: -19.0, lon: 29.2 },
 ];
+
+export const V2_COUNTRIES: { name: string; lat: number; lon: number }[] = [
+  ...COUNTRIES,
+  { name: "Austria", lat: 47.5, lon: 14.6 },
+  { name: "Germany", lat: 51.2, lon: 10.4 },
+  { name: "Greece", lat: 39.1, lon: 21.8 },
+  { name: "Hungary", lat: 47.2, lon: 19.5 },
+  { name: "Israel", lat: 31.0, lon: 34.9 },
+  { name: "Japan", lat: 36.2, lon: 138.3 },
+  { name: "South Korea", lat: 36.5, lon: 127.9 },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 export const ORIGIN = { name: "Omaha", lat: 41.26, lon: -95.93 };
 

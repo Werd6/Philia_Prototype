@@ -1,0 +1,416 @@
+/* Draft 2. Every rule is scoped under .v2 because imported CSS applies to the whole app. */
+
+.v2 {
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow: 0 1px 2px rgba(58, 43, 68, 0.04), 0 18px 40px -26px rgba(58, 43, 68, 0.45);
+}
+
+/* Type: roman Fraunces, a key word may turn burnt orange */
+.v2 h1,
+.v2 h2 {
+  font-variation-settings: "SOFT" 30, "opsz" 144;
+  font-weight: 360;
+  letter-spacing: -0.022em;
+}
+.v2 h3 {
+  font-variation-settings: "SOFT" 30, "opsz" 36;
+  font-weight: 450;
+}
+.v2 h1 em,
+.v2 h2 em,
+.v2 em.accent {
+  font-style: normal;
+  color: var(--burnt);
+}
+.v2 .eyebrow {
+  color: var(--plum);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+}
+.v2 .eyebrow::before {
+  width: 28px;
+  height: 1px;
+  background: var(--burnt);
+  opacity: 1;
+}
+.v2 .bg-plum .eyebrow {
+  color: #f6b9a2;
+}
+
+/* Buttons and links */
+.v2 .btn {
+  border-radius: 3px;
+  border-width: 1px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 17px 30px;
+}
+.v2 .btn:hover {
+  transform: none;
+}
+.v2 .btn-sm {
+  padding: 12px 20px;
+  font-size: 0.72rem;
+}
+.v2 .btn-primary {
+  box-shadow: none;
+}
+.v2 .btn-outline {
+  border-color: var(--plum-deep);
+}
+.v2 .btn-ghost-light {
+  background: transparent;
+  backdrop-filter: none;
+}
+.v2 .text-link {
+  color: var(--plum-deep);
+  font-size: 0.95rem;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--burnt);
+}
+.v2 .bg-plum .text-link {
+  color: #fff;
+}
+
+/* Header */
+.v2 .site-header {
+  background: rgba(246, 240, 239, 0.95);
+}
+.v2 .navlink {
+  position: relative;
+  border-radius: 0;
+  background: none;
+  color: var(--plum-deep);
+}
+.v2 .navlink:hover,
+.v2 .navlink[aria-current="page"] {
+  background: none;
+  color: var(--plum-deep);
+}
+.v2 .navlink::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  right: 9px;
+  bottom: 3px;
+  height: 1.5px;
+  background: var(--burnt);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.v2 .navlink:hover::after,
+.v2 .navlink[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.v2 .draft-swap {
+  border-radius: 3px;
+}
+
+/* Home hero */
+.v2 .hero {
+  min-height: clamp(600px, calc(100svh - 76px), 900px);
+}
+.v2 .hero h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 340;
+  max-width: 11ch;
+}
+.v2 .hero h1 em,
+.v2 .page-hero h1 em {
+  color: var(--blush);
+}
+.v2 .hero .ph-label,
+.v2 .page-hero .ph-label {
+  top: 24px;
+  bottom: auto;
+  left: auto;
+  right: clamp(20px, 4vw, 40px);
+}
+
+/* Inner page heroes */
+.v2 .page-hero {
+  position: relative;
+  min-height: clamp(440px, 64vh, 620px);
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  overflow: hidden;
+}
+.v2 .page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+  padding-bottom: clamp(48px, 8vh, 88px);
+}
+.v2 .page-hero h1 {
+  color: #fff;
+  max-width: 15ch;
+  font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+}
+.v2 .page-hero .eyebrow {
+  color: #f6b9a2;
+}
+.v2 .page-hero .lede {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Shapes: quieter, squarer, fewer pastel fills */
+.v2 .beat .ph,
+.v2 .beat:nth-child(n) .ph,
+.v2 .team-card .ph {
+  border-radius: var(--radius);
+}
+.v2 .beat-num {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+.v2 .event-card,
+.v2 .story-card {
+  box-shadow: none;
+  border: 1px solid var(--line);
+}
+.v2 .event-card:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}
+.v2 .event-date {
+  border-radius: 3px;
+  box-shadow: none;
+}
+.v2 .quote-large blockquote {
+  font-style: normal;
+  font-weight: 340;
+  font-variation-settings: "SOFT" 30, "opsz" 96;
+}
+.v2 .value {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--plum-deep);
+  border-radius: 0;
+  padding: 28px 0 0;
+}
+.v2 .value:nth-child(n) .value-icon,
+.v2 .pathway:nth-child(n) .pathway-icon {
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--burnt);
+  place-items: start;
+}
+.v2 .pathway.is-featured .pathway-icon {
+  color: #fff;
+}
+.v2 .pathway {
+  border-radius: var(--radius);
+}
+.v2 .pill,
+.v2 .filter,
+.v2 .country-list li {
+  border-radius: 3px;
+}
+.v2 .pill {
+  background: transparent;
+  border: 1px solid var(--mauve);
+}
+.v2 .partner-logo {
+  border-style: solid;
+  border-width: 1px;
+}
+.v2 .cta-band {
+  border-radius: var(--radius);
+}
+.v2 .footer-tagline {
+  font-style: normal;
+}
+
+/* Impact map: names appear on the map itself */
+.v2 .map-pin {
+  cursor: pointer;
+  outline: none;
+}
+.v2 .map-pin-hit {
+  fill: transparent;
+}
+.v2 .map-pin-halo {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.v2 .map-pin.is-active .map-pin-halo {
+  transform: scale(1.6);
+  opacity: 0.4;
+}
+.v2 .map-pin:focus-visible .map-pin-dot {
+  stroke: var(--plum-deep);
+}
+.v2 .map-hover-label {
+  font-family: var(--font-head);
+  font-variation-settings: "SOFT" 30, "opsz" 72;
+  font-size: 26px;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  fill: var(--plum-deep);
+  paint-order: stroke;
+  stroke: var(--shell);
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.v2 .map-hint {
+  margin: 14px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.v2 .country-list {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Board */
+.v2 .board {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 clamp(20px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+}
+.v2 .board-seat {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.v2 .board-photo {
+  width: 64px;
+  flex: 0 0 64px;
+  border-radius: 50%;
+}
+.v2 .board-name {
+  font-family: var(--font-head);
+  font-variation-settings: "SOFT" 30, "opsz" 36;
+  font-size: 1.2rem;
+  color: var(--plum-deep);
+  margin: 0;
+  line-height: 1.2;
+}
+.v2 .board-role {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--burnt);
+}
+.v2 .board-note {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Footer: newsletter and social */
+.v2 .newsletter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  padding-bottom: clamp(40px, 6vw, 64px);
+  margin-bottom: clamp(40px, 6vw, 64px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.v2 .newsletter-title {
+  color: #fff;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin: 0 0 8px;
+}
+.v2 .newsletter-text {
+  margin: 0;
+  color: #cdbedb;
+}
+.v2 .newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.v2 .newsletter-form input {
+  flex: 1 1 220px;
+  min-width: 0;
+  font: inherit;
+  font-size: 1rem;
+  padding: 14px 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+.v2 .newsletter-form input::placeholder {
+  color: #a998ba;
+}
+.v2 .newsletter-form input:focus {
+  outline: 2px solid var(--coral);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+.v2 .newsletter-done {
+  flex-basis: 100%;
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #f6b9a2;
+}
+.v2 .socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.v2 .socials a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+.v2 .socials a:not([href]) {
+  opacity: 0.6;
+  cursor: default;
+}
+.v2 .site-footer .socials a:hover {
+  text-decoration: none;
+  border-color: #fff;
+}
+
+@media (max-width: 860px) {
+  .v2 .board {
+    grid-template-columns: 1fr 1fr;
+  }
+  .v2 .newsletter {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .v2 .board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .v2 .navlink::after {
+    left: 14px;
+    right: auto;
+    width: 40px;
+  }
+}

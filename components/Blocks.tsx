@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import Placeholder from "./Placeholder";
-import type { PhiliaEvent, Tone } from "@/lib/content";
+import type { PhiliaEvent, Scene, Tone } from "@/lib/content";
+import { withBase } from "@/lib/paths";
 
 export function SectionHead({
   eyebrow,
@@ -35,7 +36,35 @@ export function PageIntro({ eyebrow, title, intro }: { eyebrow: string; title: R
   );
 }
 
-export function EventCard({ event, compact }: { event: PhiliaEvent; compact?: boolean }) {
+export function PageHero({
+  eyebrow,
+  title,
+  intro,
+  scene,
+  tone,
+  label,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  intro: string;
+  scene: Scene;
+  tone: Tone;
+  label: string;
+}) {
+  return (
+    <section className="page-hero">
+      <Placeholder scene={scene} tone={tone} label={label} fill />
+      <div className="hero-scrim" />
+      <div className="wrap page-hero-content">
+        <p className="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        <p className="lede">{intro}</p>
+      </div>
+    </section>
+  );
+}
+
+export function EventCard({ event, compact, base = "" }: { event: PhiliaEvent; compact?: boolean; base?: string }) {
   return (
     <article className={`event-card ${compact ? "is-compact" : ""}`}>
       <div className="event-media">
@@ -52,7 +81,7 @@ export function EventCard({ event, compact }: { event: PhiliaEvent; compact?: bo
           <br />
           {event.place}
         </p>
-        <Link href="/get-involved#attend" className="text-link">
+        <Link href={withBase(base, "/get-involved#attend")} className="text-link">
           Save my seat <span aria-hidden="true">→</span>
         </Link>
       </div>

@@ -1,10 +1,25 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import LogoMark, { Wordmark } from "./LogoMark";
+import { withBase } from "@/lib/paths";
 
-export default function Footer() {
+export default function Footer({
+  base = "",
+  exploreExtra,
+  contactExtra,
+  aside,
+}: {
+  base?: string;
+  exploreExtra?: ReactNode;
+  contactExtra?: ReactNode;
+  aside?: ReactNode;
+}) {
+  const to = (path: string) => withBase(base, path);
+
   return (
     <footer className="site-footer">
       <div className="wrap">
+        {aside}
         <div className="footer-top">
           <div className="footer-brand">
             <div className="brand">
@@ -18,21 +33,22 @@ export default function Footer() {
           <div>
             <h2 className="footer-h">Explore</h2>
             <ul>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/team">Our team</Link></li>
-              <li><Link href="/programs">Programs</Link></li>
-              <li><Link href="/impact">Impact</Link></li>
-              <li><Link href="/gallery">Gallery</Link></li>
+              <li><Link href={to("/about")}>About</Link></li>
+              <li><Link href={to("/team")}>Our team</Link></li>
+              {exploreExtra}
+              <li><Link href={to("/programs")}>Programs</Link></li>
+              <li><Link href={to("/impact")}>Impact</Link></li>
+              <li><Link href={to("/gallery")}>Gallery</Link></li>
             </ul>
           </div>
 
           <div>
             <h2 className="footer-h">Get involved</h2>
             <ul>
-              <li><Link href="/programs#upcoming">Attend an event</Link></li>
-              <li><Link href="/get-involved#volunteer">Volunteer</Link></li>
-              <li><Link href="/get-involved#partner">Partner with us</Link></li>
-              <li><Link href="/get-involved#give">Donate</Link></li>
+              <li><Link href={to("/programs#upcoming")}>Attend an event</Link></li>
+              <li><Link href={to("/get-involved#volunteer")}>Volunteer</Link></li>
+              <li><Link href={to("/get-involved#partner")}>Partner with us</Link></li>
+              <li><Link href={to("/get-involved#give")}>Donate</Link></li>
             </ul>
           </div>
 
@@ -42,7 +58,8 @@ export default function Footer() {
               <li><a href="mailto:hello@philia.org">hello@philia.org</a></li>
               <li><a href="https://www.instagram.com/philia.inc/" rel="noopener">@philia.inc</a></li>
             </ul>
-            <Link href="/get-involved#give" className="btn btn-light btn-sm footer-donate">
+            {contactExtra}
+            <Link href={to("/get-involved#give")} className="btn btn-light btn-sm footer-donate">
               Donate
             </Link>
           </div>
